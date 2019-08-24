@@ -1,0 +1,86 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace companyBonusProject
+{
+    public partial class paidTimeOffForm : Form
+    {
+        public paidTimeOffForm()
+        {
+            InitializeComponent();
+        }
+
+        // Set up Sequential Search
+        private int SequentialSearch(string[] sArray, string value)
+        {
+            bool found = false;
+            int index = 0;
+            int position = -1;
+
+        while (!found && index < sArray.Length)
+            {
+                if(sArray[index] == value)
+                {
+                    found = true;
+                    position = index;
+                }
+
+                index++;
+            }
+            return position;
+        }
+        private void seniorityListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string selection;
+            string[] lessTen = { "Ten years or less" };
+            string[] greaterTen = { "More than 10 years, less than 30 years" };
+            string[] greaterThirty = { "More than 30 years" };
+
+            if (seniorityListBox.SelectedIndex != -1)
+            {
+                selection = seniorityListBox.SelectedItem.ToString();
+
+                if (SequentialSearch(lessTen, selection) != -1)
+                {
+                    paidTimeOffLabel.Text = ("Thank you for all you do and keep up the good work!" +
+                        "\n" + "\n" + "You get 5 extra days of PTO this year in lieu of a bonus. " + "\n" + "\n" +
+                        "Make it count!");
+                }
+                else if (SequentialSearch(greaterTen, selection) != -1)
+                {
+                    paidTimeOffLabel.Text = ("Wow, you've really stuck it out with us through the good and the bad." + "\n" +
+                        "\n" + "We are going to give you 12 days of extra PTO in lieu of a bonus, " + "\n" + "\n" +
+                        "as our way of saying thanks. Enjoy!");
+                }
+                else if (SequentialSearch(greaterThirty, selection) != -1)
+                {
+                    paidTimeOffLabel.Text = ("You deserve a gold medal!" + "\n" + "\n" +
+                        "I hope 30 days extra PTO in lieu of a bonus will do the trick!" + "\n" + "\n" +
+                        "We can't thank you enough for all you've done for our company!");
+                }
+            }
+
+
+                
+
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            paidTimeOffLabel.Text = "";
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
