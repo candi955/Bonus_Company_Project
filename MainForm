@@ -1,0 +1,285 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.IO;
+
+namespace companyBonusProject
+{
+    public partial class chooseHowBonusForm : Form
+    {
+        public chooseHowBonusForm()
+        {
+            InitializeComponent();
+        }
+        // Initially I thought this project would take me about 5 hours.  Boy was I wrong.  
+        // Being new to C#, I ended up failing miserable spending about 12 hours at it the first day
+        // Eventually I came to the conclusion that, I needed to start from scratch and really go 
+        // into C# in some detail.  I just wasn't getting it otherwise.  I went through all of the 
+        // basic TutorialsPoint videos (up to what we've learned so far in class), and also through
+        // the book chapters we've done so far.  I spent time doing the projects out of the book. 
+        // This helped a lot also.  Thank you also Dr. Coddington for your help and guidance.  
+        // All-in-all, I think it took me approximately 36 hours to come up with this.  It doesn't 
+        // look like much, but I have learned a ton in a very short amount of time.  I think because I 
+        // am new to C#, I will have to devote extra time to it.  I am really loving it though, especially
+        // the creative aspect.  I think for the next project I will also follow along with projects 
+        // from the book.  For some reason the visual and kinetic aspects really helped me catch on
+        // faster.  Thank you for your patience on my submission. 
+
+        // On a side note, I couldn't get the commas on the 'Profit' portion of the calculator to work.
+        // I apologize.  The calculations work, but just not the commas.(Done 3/12/2019@ appx 8:05pm)
+
+        // It's 12:56am on 3/13/2019.  I started trying to create the exceptions at approximately 11am,
+        //so it took me about 2 hours to do so.  I think it took me a shorter amount of time
+        //this time due to I am beginning to understand the layout and workings of the software, and of
+        //c# in general.  This makes both figuring things out and research faster.  However, I believe this
+        //to be a program that one must continuously use daily to really get the hang of.  My plan is to 
+        //do many more small practice projects from the book and online between class projects, if possible
+        //to keep getting better and faster.
+        // 12:57 am 3/13/2019, attempting to figure out how to add commas.
+        //1:16am I was able to figure out how to place commas in.  I also made a Clear button for the
+        //bonus/profit portion of the calculator, and changed one of the messages.  
+
+        // March 17, 2019, began attempting While Loop at 3:15am in the Lottery section.  It was not
+        // working, as I couldn't get my textbox to stop repeating.  I decided to change my type of
+        // attempt and began to try to add it to the Profit section.  The code of the Profit section
+        // kept becoming interrupted infinitely however.  I decided to try again after some sleep.
+        // At 9:15 am I made attempts at the While Loop again on the Lottery section.  This time
+        // I was able to get it to work at approximately 9:25 am.  Initially I ran into the infinite
+        // repeat of the MessageBox again, but I was able to interrupt this by running a clear TextBox
+        // instruction before the increment instruction. 
+        // I began to check other instructions on this assignment.  It appears I already have multiple
+        // return-types such as decimal (Profit section) and integer (Lottery section). It appears from
+        // what I understand about methods, that I have multiple methods in each section (brackets where
+        // one set of code instructions and variables held in memory ends, and a new section begins. 
+        // I also have a random number generator in the Lottery section.  
+        // I am going to check with the instructor if my code should remain the same, or if I should
+        // add more.  I am not certain if the program currently suffices for the assignment due at end-of-day
+        // today. 
+
+        // 9:56am am going to check on writing the results to a file. 
+        //10:14 Added using.System.IO class on top of application
+        // 11:15 After watching a video and doing a self-practice in another application, 
+        // was able to apply StreamWriter and successfully writer textbox to file bonusToFile.txt
+        // for the end of the Bonus portion of my application
+
+        // I think this took a little longer than expected because I didn't dive as deep initially 
+        // into the chapters as I would have liked.  I was running behind due to work for another
+        // class that took longer than expected.  I am still not certain I have done all required, and
+        // am planning on emailing the instructor with this question.
+        // 4/13/2019 18:30pm I went into Canvas to turn in my Final project, and realized upon
+        // reviewing what is due, that I had been performing my last weeks CEO project onto my
+        // Final project.  I am not sure what caused me to get confused, but I have decided this 
+        // that this evening I am going to update my CEO assignment so that it is current.  
+        // 19:00 I have begun brainstorming for plans.  I decided to start with a Vacation page.
+        // I thought I could begin building lists for vacation ideas and run with it.  It worked.
+        // I am starting with a Vacation Request form.  I am going to lay out the design now.
+        // 19:20 I've layed out my design, and labeled everything properly. There are entry blocks
+        // for First Name, Last Name, and 3 choices of Vacation Spots.  I want to build an array,
+        // and then use the Button to create and Instance and add the data to a txt file.  
+        // 20:30 I have completed the form.  It took me a little longer because I wanted the 
+        // data to be layed out correctly.  When it saves to the form, it now saves neatly with
+        // different lines and a spaced line between each person's entry.  
+        // 20:45 I am going to now make a ListBox form to help employees plan their vacation.
+        // 21:30 I have planned the form, done a little research on how I'm going to build it, 
+        // and have built the display.  Now I just need to put in the code for the instance.
+        // 22:30 This proved to actually be a very difficult build for me.  I had only made a 
+        // form like this that had two choices.  For this form I have four choices at the moment.  
+        // I might add more choices later.  It took me a ton of trial and error, but I finally 
+        // figured out how to enter the code so that I could move through the list.  It took
+        // strings and also if/if else statements.  The form appears to work correctly now.
+        // My next plan is to create a form that shows inheritance, all of the required classes,
+        // encapsulation, etc (everything UML).  I will begin by brainstorming.  I know it will
+        // be something to do with a new form, that involves multiple classes, and I am gearing toward 
+        // Human Resources. 
+        // 22:45 I have a plan to create a Human Resources point-of-contact form, with buttons to 
+        // click to enable to viewing of the points-of-contact in a label box.  There will be a 
+        // points-of-contact base class, and different departments with derived classes and 
+        // a unique variable for inheritance purposes.  
+        // 23:20 I have created my form design and classes.  Now I am beginning to add the code in.  
+        // 24:10 Some of the coding for encapsulation I had to go back through and figure out a little
+        // bit.  I was mixing up the public and private variables in my mind.  I have created a read-only
+        // version for the Legal Corporate attorney. 
+        // 24:30 I went in and cleaned up the code so it shows in the label on different lines, and
+        // all of the unique inherited variables are listed correctly for each instance/department.  
+        // If I could do this again, I would slow down and write every variable down.  I think I 
+        // will research if there is a good template to chart coding before getting started.  This 
+        // evening's work took me a little more than 6 hours to complete. 
+        // 4/19/2019 @ 17:09 I have come up with the idea for my CEO project DataBase to be on it's on form, connected to the
+        // menu.  I want the subject to be about employment opportunities available, for the employees to scan through and see
+        // what jobs are open within the organization.  I believe this will take me approximately 2 hours. 
+        // 17:30 I have created the form and connected it from the menu.
+        // 18:03 I have created a table, and added job types and job numbers, and added to the employmentOpportunitiesForm.
+        // 20:00 I took a long break with the family for the evening, and have returned to begin adding a menu to this
+        // form for employees to search through for form details.  
+        // 20:34 I have added a Show Details Button, with exit buttons on both the details form with details table, and also on 
+        // the employmentOpportunities form. 
+        // 20:41 I have finished adding color and font changes to both forms. The project took me in total, minus the break, 
+        // approximately three hours.  This isn't much longer from my initial estimation.  I think it took a little shorter
+        // to work on this than my final project database due to I am getting used to how the database menus work now.  
+        // 4/20/2018 @ 15:27pm I am beginning to add UI improvements to the program. I expect this project to take approximately
+        // 2.5 hours. 
+        // 15:30 Added Bonus Form, changed name to Bonus Options. 
+        // 15:51 I took a 5 minute break, then added secondary menus, creating main menus Human Resources, Benefits, and 
+        // Employment Opportunites.  Benefits has secondary menus Bonus Options and Vacation Requests. 
+        // 17:57 I have created two new forms: Bonus Form and Lottery Form.  I have moved all of the Bonus and Lottery options
+        // from the MainForm to these forms, and added updated fonts, colors, images, and features.  I have also created 
+        // exit and clear buttons.  I added both of these forms as having access from the Benefits secondary menus.  
+        //  I also added quite a few ToolTips. My next step will be to do this with the vacation form also. 
+        // 18:51 I took approximately an hour long break to hang out with family.  Now I am getting back to working on my 
+        // Vacation Form. 
+        // 18:56 I just realized there is an issue with some of my Vacation program labeling.  I'm changing the Bonus vacation 
+        // verbiage to Paid Time Off (PTO).  I'm going to make secondary menus on the Vacation form for the Vacation and Planning
+        // portions of the application. 
+        // 19:55 pm I have created a Paid Time Off form, and then made a Sequential Selection list and answer LabelBox with it.
+        // My next goal is to create two different forms and a tertiary menu with the secondary Vacation menu.
+        // 21:13 I have changed the templates of all of the forms to be consistent, added secondary and tertiar menus on the 
+        // main page, and backround images.  I am going to add a title to the cover form.  Then I will begin adding my ToolTips. 
+        // I should mention I also changed the Vacation Planner form's Sequential Search to be able to perform in the absence of
+        // a button.
+        // 21:22 I added a title to my MainPage, with transparent backround on the labels. I am about to begin making my 
+        // ToolTips on each page. 
+        // 21:48 I have added my tool tips to all of the pages, and performed a few other minor tweaks to the layout and format
+        // here and there.  I am going to check the program for errors now prior to submission. 
+        // 21:51 I'm glad I checked for errors. There was a big font issue on my Human Resources point-of-contact program. 
+        // It is corrected now. 
+        // 21:53 I was unable to find any issues. My form is ready for submission. The entire UI process took me approximately
+        // 5 and 1/2 hours. I underestimated my completion time by 3 hours.  In hindsight, however, I am glad I went slow and
+        // took my time.  It was integral to be patient while changing programs from the main form and the vacation form
+        // to new forms.  I made a lot of back-up files in between as well.  At one point, for reasons unknown to me, my form 
+        // said I had a web connection that needed removed and the program would not run.  I attempted quite a few times
+        // to remove the Read-Only setting from the file manager properties.  However it kept returning despite clicking 
+        // Apply and Okay. I ended up saving the program as a zipped file to my documents folder.  The unzipped file in the 
+        // new folder worked perfectly.  I am not sure the reason for that happening, as the program had worked fine for approximately
+        // 4 hours up to that point. 
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void profitCalculationButton_Click(object sender, EventArgs e)
+        {
+
+            
+        }
+
+        private void profitAnswerLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lotteryLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lotteryButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void actualBonusLabel_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void vacayTitleLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tenYearButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clearProfitBoxButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vacationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vacation vacation = new Vacation();
+            vacation.Show();
+        }
+
+        private void humanResourcesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void employmenTOpportunitiesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            employmentOpportunitiesForm employment_opportunities = new employmentOpportunitiesForm();
+           employment_opportunities.Show();
+        }
+
+        private void bonusOptionsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vacationFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pointsOfContactToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            HumanResources human_resources = new HumanResources();
+            human_resources.Show();
+        }
+
+        private void profitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BonusForm bonusCalculation = new BonusForm();
+            bonusCalculation.Show();
+        }
+
+        private void lotteryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LotteryForm lotteryBonus = new LotteryForm();
+            lotteryBonus.Show();
+        }
+
+        private void vacationTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            paidTimeOffForm paidTime= new paidTimeOffForm();
+           paidTime.Show();
+        }
+
+        private void bonusOptionsToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vacationRequestFormToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           Vacation requestVacay = new Vacation();
+            requestVacay.Show();
+        }
+
+        private void vacationPlannerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vacationPlanningForm planVacay = new vacationPlanningForm();
+            planVacay.Show();
+        }
+    }
+}
+         
