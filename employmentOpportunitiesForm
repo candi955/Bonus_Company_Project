@@ -1,0 +1,53 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace companyBonusProject
+{
+    public partial class employmentOpportunitiesForm : Form
+    {
+        public employmentOpportunitiesForm()
+        {
+            InitializeComponent();
+        }
+
+        private void jobOpportunityTableBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.jobOpportunityTableBindingSource.EndEdit();
+            
+
+        }
+
+        private void employmentOpportunitiesForm_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'employmentDataSet1.jobsTable' table. You can move, or remove it, as needed.
+            this.jobsTableTableAdapter.Fill(this.employmentDataSet1.jobsTable);
+
+
+        }
+
+        private void showDetailsButton_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the Details Form
+            DetailsForm details = new DetailsForm();
+
+            // Display the form
+            details.ShowDialog();
+
+            // Update the dataset
+            this.jobsTableTableAdapter.Fill(this.employmentDataSet1.jobsTable);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}
